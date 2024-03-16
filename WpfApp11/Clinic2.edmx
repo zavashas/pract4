@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Clinic2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointments">
+          <Key>
+            <PropertyRef Name="ID_Appointment" />
+          </Key>
+          <Property Name="ID_Appointment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_ID" Type="int" Nullable="false" />
+          <Property Name="Doctor_ID" Type="int" Nullable="false" />
+          <Property Name="DateAppointment" Type="datetime" Nullable="false" />
+          <Property Name="DescriptionAppointment" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="ID_Doctor" />
+          </Key>
+          <Property Name="ID_Doctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorSurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoctorMiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="Specialization" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="ID_Patient" />
+          </Key>
+          <Property Name="ID_Patient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientSurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatientName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatientMiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic2.dbo.AppointmentsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="AppointmentsView">
+          <Key>
+            <PropertyRef Name="ID Пациента" />
+            <PropertyRef Name="ID Врача" />
+            <PropertyRef Name="Описание приёма" />
+          </Key>
+          <Property Name="ID Пациента" Type="int" Nullable="false" />
+          <Property Name="ID Врача" Type="int" Nullable="false" />
+          <Property Name="Описание приёма" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic2.dbo.DoctorsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="DoctorsView">
+          <Key>
+            <PropertyRef Name="Специализация" />
+          </Key>
+          <Property Name="ФИО" Type="int" />
+          <Property Name="Специализация" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic2.dbo.DoctorsView2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="DoctorsView2">
+          <Key>
+            <PropertyRef Name="Специализация" />
+          </Key>
+          <Property Name="ФИО" Type="varchar" MaxLength="55" />
+          <Property Name="Специализация" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic2.dbo.PatientsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="PatientsView">
+          <Key>
+            <PropertyRef Name="Дата_рождения" />
+            <PropertyRef Name="Пол" />
+          </Key>
+          <Property Name="ФИО" Type="int" />
+          <Property Name="Дата_рождения" Type="date" Nullable="false" />
+          <Property Name="Пол" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic2.dbo.PatientsView2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="PatientsView2">
+          <Key>
+            <PropertyRef Name="Дата_рождения" />
+            <PropertyRef Name="Пол" />
+          </Key>
+          <Property Name="ФИО" Type="varchar" MaxLength="55" />
+          <Property Name="Дата_рождения" Type="date" Nullable="false" />
+          <Property Name="Пол" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Appointme__Docto__3C69FB99">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_Doctor" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="Doctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__3B75D760">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID_Patient" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Clinic2ModelContainer">
+          <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppointmentsView" EntityType="Self.AppointmentsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AppointmentsView].[ID Пациента] AS [ID Пациента], 
+    [AppointmentsView].[ID Врача] AS [ID Врача], 
+    [AppointmentsView].[Описание приёма] AS [Описание приёма]
+    FROM [dbo].[AppointmentsView] AS [AppointmentsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DoctorsView" EntityType="Self.DoctorsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DoctorsView].[ФИО] AS [ФИО], 
+    [DoctorsView].[Специализация] AS [Специализация]
+    FROM [dbo].[DoctorsView] AS [DoctorsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DoctorsView2" EntityType="Self.DoctorsView2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DoctorsView2].[ФИО] AS [ФИО], 
+    [DoctorsView2].[Специализация] AS [Специализация]
+    FROM [dbo].[DoctorsView2] AS [DoctorsView2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PatientsView" EntityType="Self.PatientsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PatientsView].[ФИО] AS [ФИО], 
+    [PatientsView].[Дата_рождения] AS [Дата_рождения], 
+    [PatientsView].[Пол] AS [Пол]
+    FROM [dbo].[PatientsView] AS [PatientsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PatientsView2" EntityType="Self.PatientsView2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PatientsView2].[ФИО] AS [ФИО], 
+    [PatientsView2].[Дата_рождения] AS [Дата_рождения], 
+    [PatientsView2].[Пол] AS [Пол]
+    FROM [dbo].[PatientsView2] AS [PatientsView2]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Appointme__Docto__3C69FB99" Association="Self.FK__Appointme__Docto__3C69FB99">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__3B75D760" Association="Self.FK__Appointme__Patie__3B75D760">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Clinic2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointments">
+          <Key>
+            <PropertyRef Name="ID_Appointment" />
+          </Key>
+          <Property Name="ID_Appointment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" />
+          <Property Name="Doctor_ID" Type="Int32" Nullable="false" />
+          <Property Name="DateAppointment" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DescriptionAppointment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Appointme__Docto__3C69FB99" FromRole="Appointments" ToRole="Doctors" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK__Appointme__Patie__3B75D760" FromRole="Appointments" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="ID_Doctor" />
+          </Key>
+          <Property Name="ID_Doctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Specialization" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK__Appointme__Docto__3C69FB99" FromRole="Doctors" ToRole="Appointments" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="ID_Patient" />
+          </Key>
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatientMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK__Appointme__Patie__3B75D760" FromRole="Patients" ToRole="Appointments" />
+        </EntityType>
+        <EntityType Name="AppointmentsView">
+          <Key>
+            <PropertyRef Name="ID_Пациента" />
+            <PropertyRef Name="ID_Врача" />
+            <PropertyRef Name="Описание_приёма" />
+          </Key>
+          <Property Name="ID_Пациента" Type="Int32" Nullable="false" />
+          <Property Name="ID_Врача" Type="Int32" Nullable="false" />
+          <Property Name="Описание_приёма" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DoctorsView">
+          <Key>
+            <PropertyRef Name="Специализация" />
+          </Key>
+          <Property Name="ФИО" Type="Int32" />
+          <Property Name="Специализация" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatientsView">
+          <Key>
+            <PropertyRef Name="Дата_рождения" />
+            <PropertyRef Name="Пол" />
+          </Key>
+          <Property Name="ФИО" Type="Int32" />
+          <Property Name="Дата_рождения" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Пол" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Appointme__Docto__3C69FB99">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_Doctor" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="Doctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__3B75D760">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID_Patient" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Clinic2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointments" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" />
+          <EntitySet Name="AppointmentsView" EntityType="Self.AppointmentsView" />
+          <EntitySet Name="DoctorsView" EntityType="Self.DoctorsView" />
+          <EntitySet Name="PatientsView" EntityType="Self.PatientsView" />
+          <AssociationSet Name="FK__Appointme__Docto__3C69FB99" Association="Self.FK__Appointme__Docto__3C69FB99">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__3B75D760" Association="Self.FK__Appointme__Patie__3B75D760">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <EntitySet Name="DoctorsView2" EntityType="Clinic2Model.DoctorsView2" />
+          <EntitySet Name="PatientsView2" EntityType="Clinic2Model.PatientsView2" />
+        </EntityContainer>
+        <EntityType Name="DoctorsView2">
+          <Key>
+            <PropertyRef Name="Специализация" />
+          </Key>
+          <Property Name="ФИО" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Специализация" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientsView2">
+          <Key>
+            <PropertyRef Name="Дата_рождения" />
+            <PropertyRef Name="Пол" />
+          </Key>
+          <Property Name="ФИО" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Дата_рождения" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Пол" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Clinic2ModelContainer" CdmEntityContainer="Clinic2Entities">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="Clinic2Model.Appointments">
+              <MappingFragment StoreEntitySet="Appointments">
+                <ScalarProperty Name="ID_Appointment" ColumnName="ID_Appointment" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Doctor_ID" ColumnName="Doctor_ID" />
+                <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
+                <ScalarProperty Name="DescriptionAppointment" ColumnName="DescriptionAppointment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="Clinic2Model.Doctors">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="ID_Doctor" ColumnName="ID_Doctor" />
+                <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="DoctorMiddleName" ColumnName="DoctorMiddleName" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="Clinic2Model.Patients">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+                <ScalarProperty Name="PatientSurname" ColumnName="PatientSurname" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="PatientMiddleName" ColumnName="PatientMiddleName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppointmentsView">
+            <EntityTypeMapping TypeName="Clinic2Model.AppointmentsView">
+              <MappingFragment StoreEntitySet="AppointmentsView">
+                <ScalarProperty Name="ID_Пациента" ColumnName="ID Пациента" />
+                <ScalarProperty Name="ID_Врача" ColumnName="ID Врача" />
+                <ScalarProperty Name="Описание_приёма" ColumnName="Описание приёма" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsView">
+            <EntityTypeMapping TypeName="Clinic2Model.DoctorsView">
+              <MappingFragment StoreEntitySet="DoctorsView">
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Специализация" ColumnName="Специализация" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientsView">
+            <EntityTypeMapping TypeName="Clinic2Model.PatientsView">
+              <MappingFragment StoreEntitySet="PatientsView">
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsView2">
+            <EntityTypeMapping TypeName="Clinic2Model.DoctorsView2">
+              <MappingFragment StoreEntitySet="DoctorsView2">
+                <ScalarProperty Name="Специализация" ColumnName="Специализация" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientsView2">
+            <EntityTypeMapping TypeName="Clinic2Model.PatientsView2">
+              <MappingFragment StoreEntitySet="PatientsView2">
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp11.PatientsW"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp11"
+        mc:Ignorable="d"
+        Title="Пациенты" Height="450" Width="800">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" x:Name="PatientsView2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding PatientSurname}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding PatientName}" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding PatientMiddleName}" />
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
