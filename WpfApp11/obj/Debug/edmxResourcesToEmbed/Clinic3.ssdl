@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Clinic3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="ID_Appointment" />
+    </Key>
+    <Property Name="ID_Appointment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Patient_ID" Type="int" Nullable="false" />
+    <Property Name="Doctor_ID" Type="int" Nullable="false" />
+    <Property Name="DateAppointment" Type="datetime" Nullable="false" />
+    <Property Name="DescriptionAppointment" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="ID_Doctor" />
+    </Key>
+    <Property Name="ID_Doctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorSurname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Specialization_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID_Gender" />
+    </Key>
+    <Property Name="ID_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderValue" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="ID_Patient" />
+    </Key>
+    <Property Name="ID_Patient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientSurname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Gender_ID" Type="int" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specializations">
+    <Key>
+      <PropertyRef Name="ID_Specialization" />
+    </Key>
+    <Property Name="ID_Specialization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecializationName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.AppointmentsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="AppointmentsView">
+    <Key>
+      <PropertyRef Name="Дата приема" />
+      <PropertyRef Name="Описание" />
+    </Key>
+    <Property Name="ФИО пациента" Type="varchar" MaxLength="55" />
+    <Property Name="ФИО врача" Type="varchar" MaxLength="55" />
+    <Property Name="Дата приема" Type="datetime" Nullable="false" />
+    <Property Name="Описание" Type="text" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.AppointmentsView2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="AppointmentsView2">
+    <Key>
+      <PropertyRef Name="DateAppointment" />
+      <PropertyRef Name="DescriptionAppointment" />
+      <PropertyRef Name="ID_Patient" />
+      <PropertyRef Name="ID_Doctor" />
+    </Key>
+    <Property Name="PatientFullName" Type="varchar" MaxLength="55" />
+    <Property Name="DoctorFullName" Type="varchar" MaxLength="55" />
+    <Property Name="DateAppointment" Type="datetime" Nullable="false" />
+    <Property Name="DescriptionAppointment" Type="text" Nullable="false" />
+    <Property Name="ID_Patient" Type="int" Nullable="false" />
+    <Property Name="ID_Doctor" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.ClinicView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ClinicView">
+    <Key>
+      <PropertyRef Name="Фамилия пациента" />
+      <PropertyRef Name="Имя пациента" />
+      <PropertyRef Name="Пол пациента" />
+      <PropertyRef Name="Дата рождения пациента" />
+      <PropertyRef Name="Фамилия врача" />
+      <PropertyRef Name="Имя врача" />
+      <PropertyRef Name="Специализация" />
+      <PropertyRef Name="Дата приема" />
+      <PropertyRef Name="Описание приема" />
+    </Key>
+    <Property Name="Фамилия пациента" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Имя пациента" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество пациента" Type="varchar" MaxLength="50" />
+    <Property Name="Пол пациента" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Дата рождения пациента" Type="date" Nullable="false" />
+    <Property Name="Фамилия врача" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Имя врача" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество врача" Type="varchar" MaxLength="50" />
+    <Property Name="Специализация" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Дата приема" Type="datetime" Nullable="false" />
+    <Property Name="Описание приема" Type="text" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.DoctorsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="DoctorsView">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Специализация" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="50" />
+    <Property Name="Специализация" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.DoctorsView2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="DoctorsView2">
+    <Key>
+      <PropertyRef Name="DoctorSurname" />
+      <PropertyRef Name="DoctorName" />
+      <PropertyRef Name="SpecializationName" />
+    </Key>
+    <Property Name="DoctorSurname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="SpecializationName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.PatientsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="PatientsView">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Дата рождения" />
+      <PropertyRef Name="Пол" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="50" />
+    <Property Name="Дата рождения" Type="date" Nullable="false" />
+    <Property Name="Пол" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Clinic3.dbo.PatientsView2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="PatientsView2">
+    <Key>
+      <PropertyRef Name="ID_Patient" />
+      <PropertyRef Name="PatientSurname" />
+      <PropertyRef Name="PatientName" />
+      <PropertyRef Name="DateOfBirth" />
+      <PropertyRef Name="Gender_ID" />
+      <PropertyRef Name="GenderValue" />
+    </Key>
+    <Property Name="ID_Patient" Type="int" Nullable="false" />
+    <Property Name="PatientSurname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Gender_ID" Type="int" Nullable="false" />
+    <Property Name="GenderValue" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Appointme__Docto__4222D4EF">
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="ID_Doctor" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="Doctor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__412EB0B6">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="ID_Patient" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="Patient_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Doctors__Special__3B75D760">
+    <End Role="Specializations" Type="Self.Specializations" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializations">
+        <PropertyRef Name="ID_Specialization" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="Specialization_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Patients__Gender__3E52440B">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID_Gender" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="Gender_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="UpdatePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PatientID" Type="int" Mode="In" />
+    <Parameter Name="Surname" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="GenderID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище Clinic3ModelContainer">
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specializations" EntityType="Self.Specializations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentsView" EntityType="Self.AppointmentsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppointmentsView].[ФИО пациента] AS [ФИО пациента], 
+    [AppointmentsView].[ФИО врача] AS [ФИО врача], 
+    [AppointmentsView].[Дата приема] AS [Дата приема], 
+    [AppointmentsView].[Описание] AS [Описание]
+    FROM [dbo].[AppointmentsView] AS [AppointmentsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppointmentsView2" EntityType="Self.AppointmentsView2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppointmentsView2].[PatientFullName] AS [PatientFullName], 
+    [AppointmentsView2].[DoctorFullName] AS [DoctorFullName], 
+    [AppointmentsView2].[DateAppointment] AS [DateAppointment], 
+    [AppointmentsView2].[DescriptionAppointment] AS [DescriptionAppointment], 
+    [AppointmentsView2].[ID_Patient] AS [ID_Patient], 
+    [AppointmentsView2].[ID_Doctor] AS [ID_Doctor]
+    FROM [dbo].[AppointmentsView2] AS [AppointmentsView2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ClinicView" EntityType="Self.ClinicView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ClinicView].[Фамилия пациента] AS [Фамилия пациента], 
+    [ClinicView].[Имя пациента] AS [Имя пациента], 
+    [ClinicView].[Отчество пациента] AS [Отчество пациента], 
+    [ClinicView].[Пол пациента] AS [Пол пациента], 
+    [ClinicView].[Дата рождения пациента] AS [Дата рождения пациента], 
+    [ClinicView].[Фамилия врача] AS [Фамилия врача], 
+    [ClinicView].[Имя врача] AS [Имя врача], 
+    [ClinicView].[Отчество врача] AS [Отчество врача], 
+    [ClinicView].[Специализация] AS [Специализация], 
+    [ClinicView].[Дата приема] AS [Дата приема], 
+    [ClinicView].[Описание приема] AS [Описание приема]
+    FROM [dbo].[ClinicView] AS [ClinicView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DoctorsView" EntityType="Self.DoctorsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DoctorsView].[Фамилия] AS [Фамилия], 
+    [DoctorsView].[Имя] AS [Имя], 
+    [DoctorsView].[Отчество] AS [Отчество], 
+    [DoctorsView].[Специализация] AS [Специализация]
+    FROM [dbo].[DoctorsView] AS [DoctorsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DoctorsView2" EntityType="Self.DoctorsView2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DoctorsView2].[DoctorSurname] AS [DoctorSurname], 
+    [DoctorsView2].[DoctorName] AS [DoctorName], 
+    [DoctorsView2].[DoctorMiddleName] AS [DoctorMiddleName], 
+    [DoctorsView2].[SpecializationName] AS [SpecializationName]
+    FROM [dbo].[DoctorsView2] AS [DoctorsView2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PatientsView" EntityType="Self.PatientsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PatientsView].[Фамилия] AS [Фамилия], 
+    [PatientsView].[Имя] AS [Имя], 
+    [PatientsView].[Отчество] AS [Отчество], 
+    [PatientsView].[Дата рождения] AS [Дата рождения], 
+    [PatientsView].[Пол] AS [Пол]
+    FROM [dbo].[PatientsView] AS [PatientsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PatientsView2" EntityType="Self.PatientsView2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PatientsView2].[ID_Patient] AS [ID_Patient], 
+    [PatientsView2].[PatientSurname] AS [PatientSurname], 
+    [PatientsView2].[PatientName] AS [PatientName], 
+    [PatientsView2].[PatientMiddleName] AS [PatientMiddleName], 
+    [PatientsView2].[DateOfBirth] AS [DateOfBirth], 
+    [PatientsView2].[Gender_ID] AS [Gender_ID], 
+    [PatientsView2].[GenderValue] AS [GenderValue]
+    FROM [dbo].[PatientsView2] AS [PatientsView2]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Appointme__Docto__4222D4EF" Association="Self.FK__Appointme__Docto__4222D4EF">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__412EB0B6" Association="Self.FK__Appointme__Patie__412EB0B6">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Doctors__Special__3B75D760" Association="Self.FK__Doctors__Special__3B75D760">
+      <End Role="Specializations" EntitySet="Specializations" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Patients__Gender__3E52440B" Association="Self.FK__Patients__Gender__3E52440B">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

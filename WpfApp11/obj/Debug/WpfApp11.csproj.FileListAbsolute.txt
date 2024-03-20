@@ -24,7 +24,6 @@ C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\App.g.cs
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11_Content.g.cs
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11_MarkupCompile.cache
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11_MarkupCompile.lref
-C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\App.baml
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\AppointmentsW.baml
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\DoctorsW.baml
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\MainWindow.baml
@@ -36,3 +35,6 @@ C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11.csproj.CoreComp
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11.csproj.CopyComplete
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11.exe
 C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\WpfApp11.pdb
+C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\SpecializationsW.g.cs
+C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\SpecializationsW.baml
+C:\Users\simaz\source\repos\WpfApp11\WpfApp11\obj\Debug\App.baml

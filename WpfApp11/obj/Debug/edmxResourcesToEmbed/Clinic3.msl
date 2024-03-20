@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Clinic3ModelContainer" CdmEntityContainer="Clinic3Entities">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="Clinic3Model.Appointments">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="ID_Appointment" ColumnName="ID_Appointment" />
+          <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+          <ScalarProperty Name="Doctor_ID" ColumnName="Doctor_ID" />
+          <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
+          <ScalarProperty Name="DescriptionAppointment" ColumnName="DescriptionAppointment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="Clinic3Model.Doctors">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="ID_Doctor" ColumnName="ID_Doctor" />
+          <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorMiddleName" ColumnName="DoctorMiddleName" />
+          <ScalarProperty Name="Specialization_ID" ColumnName="Specialization_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="Clinic3Model.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="ID_Gender" ColumnName="ID_Gender" />
+          <ScalarProperty Name="GenderValue" ColumnName="GenderValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="Clinic3Model.Patients">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="PatientSurname" ColumnName="PatientSurname" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="PatientMiddleName" ColumnName="PatientMiddleName" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specializations">
+      <EntityTypeMapping TypeName="Clinic3Model.Specializations">
+        <MappingFragment StoreEntitySet="Specializations">
+          <ScalarProperty Name="ID_Specialization" ColumnName="ID_Specialization" />
+          <ScalarProperty Name="SpecializationName" ColumnName="SpecializationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentsView">
+      <EntityTypeMapping TypeName="Clinic3Model.AppointmentsView">
+        <MappingFragment StoreEntitySet="AppointmentsView">
+          <ScalarProperty Name="ФИО_пациента" ColumnName="ФИО пациента" />
+          <ScalarProperty Name="ФИО_врача" ColumnName="ФИО врача" />
+          <ScalarProperty Name="Дата_приема" ColumnName="Дата приема" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorsView">
+      <EntityTypeMapping TypeName="Clinic3Model.DoctorsView">
+        <MappingFragment StoreEntitySet="DoctorsView">
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Специализация" ColumnName="Специализация" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientsView">
+      <EntityTypeMapping TypeName="Clinic3Model.PatientsView">
+        <MappingFragment StoreEntitySet="PatientsView">
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UpdatePatient" FunctionName="Хранилище Clinic3Model.UpdatePatient" />
+    <EntitySetMapping Name="PatientsView2">
+      <EntityTypeMapping TypeName="Clinic3Model.PatientsView2">
+        <MappingFragment StoreEntitySet="PatientsView2">
+          <ScalarProperty Name="GenderValue" ColumnName="GenderValue" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PatientMiddleName" ColumnName="PatientMiddleName" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="PatientSurname" ColumnName="PatientSurname" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentsView2">
+      <EntityTypeMapping TypeName="Clinic3Model.AppointmentsView2">
+        <MappingFragment StoreEntitySet="AppointmentsView2">
+          <ScalarProperty Name="ID_Doctor" ColumnName="ID_Doctor" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="DescriptionAppointment" ColumnName="DescriptionAppointment" />
+          <ScalarProperty Name="DateAppointment" ColumnName="DateAppointment" />
+          <ScalarProperty Name="DoctorFullName" ColumnName="DoctorFullName" />
+          <ScalarProperty Name="PatientFullName" ColumnName="PatientFullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClinicView">
+      <EntityTypeMapping TypeName="Clinic3Model.ClinicView">
+        <MappingFragment StoreEntitySet="ClinicView">
+          <ScalarProperty Name="Описание_приема" ColumnName="Описание приема" />
+          <ScalarProperty Name="Дата_приема" ColumnName="Дата приема" />
+          <ScalarProperty Name="Специализация" ColumnName="Специализация" />
+          <ScalarProperty Name="Отчество_врача" ColumnName="Отчество врача" />
+          <ScalarProperty Name="Имя_врача" ColumnName="Имя врача" />
+          <ScalarProperty Name="Фамилия_врача" ColumnName="Фамилия врача" />
+          <ScalarProperty Name="Дата_рождения_пациента" ColumnName="Дата рождения пациента" />
+          <ScalarProperty Name="Пол_пациента" ColumnName="Пол пациента" />
+          <ScalarProperty Name="Отчество_пациента" ColumnName="Отчество пациента" />
+          <ScalarProperty Name="Имя_пациента" ColumnName="Имя пациента" />
+          <ScalarProperty Name="Фамилия_пациента" ColumnName="Фамилия пациента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorsView2">
+      <EntityTypeMapping TypeName="Clinic3Model.DoctorsView2">
+        <MappingFragment StoreEntitySet="DoctorsView2">
+          <ScalarProperty Name="SpecializationName" ColumnName="SpecializationName" />
+          <ScalarProperty Name="DoctorMiddleName" ColumnName="DoctorMiddleName" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

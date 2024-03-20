@@ -24,9 +24,10 @@ namespace WpfApp11
         public string DoctorSurname { get; set; }
         public string DoctorName { get; set; }
         public string DoctorMiddleName { get; set; }
-        public string Specialization { get; set; }
+        public int Specialization_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointments> Appointments { get; set; }
+        public virtual Specializations Specializations { get; set; }
     }
 }

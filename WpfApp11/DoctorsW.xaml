@@ -8,6 +8,57 @@
         mc:Ignorable="d"
         Title="Врачи" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DoctorsView2"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DoctorsViewGrd" AutoGenerateColumns="False" Grid.Row="0" Grid.RowSpan="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding DoctorSurname}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding DoctorName}" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding DoctorMiddleName}" />
+                <DataGridTextColumn Header="Специализация" Binding="{Binding SpecializationName}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Назад" Click="Back_Click"  Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF9DBA9F"  Grid.Column="1" Grid.Row="3"/>
+        <TextBox x:Name="SearchTextBox" Grid.Column="1" Grid.Row="0" Height="32" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                    <TextBlock x:Name="Placeholder" Text="Введите специализацию врача" 
+                               Foreground="Gray" Visibility="Collapsed"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsFocused" Value="False"/>
+                                            <Condition Property="Text" Value=""/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Button Content="Поиск" Click="Search_Click" Grid.Column="1" Grid.Row="0" Width="100" Background="#FF9DBA9F" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Button Content="Очистка" Click="Clear_Click" Grid.Column="1" Grid.Row="1" Width="100" Background="#FF9DBA9F" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <ComboBox x:Name="DoctorsCbx" DisplayMemberPath="SpecializationName" SelectionChanged="DoctorsCbx_SelectionChanged" Grid.Column="1" Width="300" HorizontalAlignment="Left"></ComboBox>
+
     </Grid>
 </Window>

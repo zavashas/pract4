@@ -33,5 +33,16 @@ namespace WpfApp11.Properties {
                 return ((string)(this["Clinic2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-VJSQ8N7H\\SQLEXPRESS;Initial Catalog=Clinic3;Integrated Securit" +
+            "y=True;TrustServerCertificate=True")]
+        public string Clinic3ConnectionString {
+            get {
+                return ((string)(this["Clinic3ConnectionString"]));
+            }
+        }
     }
 }

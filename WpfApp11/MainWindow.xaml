@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp11"
         mc:Ignorable="d"
-                Title="Клиника" Height="250" Width="300">
+                Title="Клиника" Height="400" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,6 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
 
         <Button x:Name="Patients" Content="Просмотр пациентов"  Click="Patients_Click" Width="200px" Height="50px" Grid.Row="0" Background="#FF9DBA9F" />

@@ -14,7 +14,9 @@ namespace WpfApp11
     
     public partial class PatientsView
     {
-        public Nullable<int> ФИО { get; set; }
+        public string Фамилия { get; set; }
+        public string Имя { get; set; }
+        public string Отчество { get; set; }
         public System.DateTime Дата_рождения { get; set; }
         public string Пол { get; set; }
     }

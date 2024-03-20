@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static WpfApp11.Clinic2DataSet;
+using static WpfApp11.Clinic3DataSet;
 
 namespace WpfApp11
 {
@@ -22,23 +22,36 @@ namespace WpfApp11
             public MainWindow()
             {
                 InitializeComponent();
+               
             }
             private void Patients_Click(object sender, RoutedEventArgs e)
             {
                 PatientsW window1 = new PatientsW();
                 window1.ShowDialog();
+                if (window1.DialogResult == false)
+                {
+                    window1.Close();
+                }
             }
 
             private void Doctors_Click(object sender, RoutedEventArgs e)
             {
                 DoctorsW window2 = new DoctorsW();
                 window2.ShowDialog();
+                if (window2.DialogResult == false)
+                {
+                    window2.Close();
+                }
             }
 
             private void Appointments_Click(object sender, RoutedEventArgs e)
             {
                 AppointmentsW window3 = new AppointmentsW();
                 window3.ShowDialog();
+                if (window3.DialogResult == false)
+                {
+                    window3.Close();
+                }
             }
         }
     

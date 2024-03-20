@@ -14,8 +14,12 @@ namespace WpfApp11
     
     public partial class PatientsView2
     {
-        public string ФИО { get; set; }
-        public System.DateTime Дата_рождения { get; set; }
-        public string Пол { get; set; }
+        public int ID_Patient { get; set; }
+        public string PatientSurname { get; set; }
+        public string PatientName { get; set; }
+        public string PatientMiddleName { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
+        public int Gender_ID { get; set; }
+        public string GenderValue { get; set; }
     }
 }

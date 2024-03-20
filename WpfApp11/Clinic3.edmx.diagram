@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6e9b4304a0f4fb381f0616fd36c2b69" Name="Diagram1">
+        <EntityTypeShape EntityType="Clinic3Model.Appointments" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.Doctors" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.Gender" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.Patients" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.Specializations" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.AppointmentsView" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.DoctorsView" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Clinic3Model.PatientsView" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="Clinic3Model.FK__Appointme__Docto__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="Clinic3Model.FK__Appointme__Patie__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Clinic3Model.FK__Doctors__Special__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Clinic3Model.FK__Patients__Gender__3E52440B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Clinic3Model.PatientsView2" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Clinic3Model.AppointmentsView2" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Clinic3Model.ClinicView" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Clinic3Model.DoctorsView2" Width="1.5" PointX="2.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -75,6 +75,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppointmentsView2.cs">
+      <DependentUpon>Clinic3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clinic3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinic3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clinic3DataSet.cs">
+      <DependentUpon>Clinic3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Clinic3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinic3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Clinic3DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinic3DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicView.cs">
+      <DependentUpon>Clinic3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>Clinic3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Specializations.cs">
+      <DependentUpon>Clinic3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecializationsW.xaml.cs">
+      <DependentUpon>SpecializationsW.xaml</DependentUpon>
+    </Compile>
     <Page Include="AppointmentsW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,10 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Appointments.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="AppointmentsView.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="AppointmentsW.xaml.cs">
       <DependentUpon>AppointmentsW.xaml</DependentUpon>
@@ -120,14 +153,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Clinic2DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Clinic3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinic3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clinic3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinic3.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Doctors.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorsView.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorsView2.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorsW.xaml.cs">
       <DependentUpon>DoctorsW.xaml</DependentUpon>
@@ -140,16 +183,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SpecializationsW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patients.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientsView.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientsView2.cs">
-      <DependentUpon>Clinic2.tt</DependentUpon>
+      <DependentUpon>Clinic3.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientsW.xaml.cs">
       <DependentUpon>PatientsW.xaml</DependentUpon>
@@ -189,6 +236,35 @@
     <None Include="Clinic2DataSet.xss">
       <DependentUpon>Clinic2DataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Clinic3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Clinic3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Clinic3.edmx.diagram">
+      <DependentUpon>Clinic3.edmx</DependentUpon>
+    </None>
+    <None Include="Clinic3DataSet.xsc">
+      <DependentUpon>Clinic3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Clinic3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Clinic3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Clinic3DataSet.xss">
+      <DependentUpon>Clinic3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Clinic3DataSet1.xsc">
+      <DependentUpon>Clinic3DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Clinic3DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Clinic3DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Clinic3DataSet1.xss">
+      <DependentUpon>Clinic3DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,6 +284,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Clinic2.edmx</DependentUpon>
       <LastGenOutput>Clinic2.cs</LastGenOutput>
+    </Content>
+    <Content Include="Clinic3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Clinic3.edmx</DependentUpon>
+      <LastGenOutput>Clinic3.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Clinic3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Clinic3.edmx</DependentUpon>
+      <LastGenOutput>Clinic3.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

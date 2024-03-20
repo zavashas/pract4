@@ -10,5 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clinic2.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clinic2.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clinic3.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clinic3.tt")]
 
 

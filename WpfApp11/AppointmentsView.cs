@@ -14,8 +14,9 @@ namespace WpfApp11
     
     public partial class AppointmentsView
     {
-        public int ID_Пациента { get; set; }
-        public int ID_Врача { get; set; }
-        public string Описание_приёма { get; set; }
+        public string ФИО_пациента { get; set; }
+        public string ФИО_врача { get; set; }
+        public System.DateTime Дата_приема { get; set; }
+        public string Описание { get; set; }
     }
 }

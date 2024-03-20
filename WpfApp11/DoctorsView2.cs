@@ -14,7 +14,9 @@ namespace WpfApp11
     
     public partial class DoctorsView2
     {
-        public string ФИО { get; set; }
-        public string Специализация { get; set; }
+        public string DoctorSurname { get; set; }
+        public string DoctorName { get; set; }
+        public string DoctorMiddleName { get; set; }
+        public string SpecializationName { get; set; }
     }
 }
